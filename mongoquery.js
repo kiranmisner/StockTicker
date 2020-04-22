@@ -2,6 +2,7 @@
 var http=require('http');
 var url =require('url');
 var MongoClient = require('mongodb').MongoClient;
+var port = process.env.PORT || 3000;
 
 /* Mongo URL used to connect */
 const uri = "mongodb+srv://kmiz1330:goalkeeper1@comp20lecture-eq7wn.mongodb.net/test?retryWrites=true&w=majority";
@@ -54,4 +55,4 @@ http.createServer(function(req,res){
     })
 
 	 });
-  }).listen(8080);
+  }).listen(port);
