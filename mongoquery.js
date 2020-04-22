@@ -12,7 +12,6 @@ var ticker = "";
 
 /* Server created */
 http.createServer(function(req,res){
-	console.log("MADE IT");
 	res.write("Hello World!");
   /* Google Chrome will often send favicon.ico requests when server
    * gets a request. This if statement will not take the favicon
