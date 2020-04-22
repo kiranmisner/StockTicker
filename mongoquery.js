@@ -12,13 +12,14 @@ var ticker = "";
 
 /* Server created */
 http.createServer(function(req,res){
+	res.write(" ");
   /* Google Chrome will often send favicon.ico requests when server
    * gets a request. This if statement will not take the favicon
    * request as a query. 
    */
 	if (req.url === '/favicon.ico') {
     	res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-    	r.end();
+    	res.end();
     	console.log('favicon requested');
     	return;
   }
