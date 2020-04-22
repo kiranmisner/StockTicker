@@ -12,7 +12,6 @@ var ticker = "";
 
 /* Server created */
 http.createServer(function(req,res){
-	res.write("Hello World!");
   /* Google Chrome will often send favicon.ico requests when server
    * gets a request. This if statement will not take the favicon
    * request as a query. 
@@ -49,10 +48,10 @@ http.createServer(function(req,res){
   	 }
      /* Otherwise, set the company name to the result and display it to the user */
       companyname = result.Company;
-		  ticker = result.Ticker;
+      ticker = result.Ticker;
       res.write("Company Name: " + companyname + "\n" + "Company Ticker: " + ticker);
       /* Close the database */
-      db.close();
+      // db.close();
     })
 
 	 });
