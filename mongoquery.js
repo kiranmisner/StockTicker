@@ -17,6 +17,7 @@ http.createServer(function(req,res){
    * request as a query. 
    */
 	if (req.url === '/favicon.ico') {
+	console.log("MAKES IT HERE");
     	res.writeHead(200, {'Content-Type': 'image/x-icon'} );
     	res.end();
     	console.log('favicon requested');
