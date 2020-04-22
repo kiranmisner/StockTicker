@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "node app",
   "main": "mongoquery.js",
-  "start": "node mongoquery.js",
   "scripts": {
+    "start": "node mongoquery.js",
     "test": "node mongoquery.js"
   },
   "author": "Kiran Misner",
