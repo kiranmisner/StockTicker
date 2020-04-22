@@ -31,7 +31,7 @@ http.createServer(function(req,res){
 	var txt = qobj.query.name; 
 
   /* Connect to Mongodb and go into correct database/collection */
-	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true},function(err, db) {
+	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: false},function(err, db) {
  		 if (err) {
         console.log(err);
       } 
