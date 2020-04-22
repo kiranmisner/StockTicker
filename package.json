@@ -1,10 +1,10 @@
 {
-  "name": "helloapp",
+  "name": "mongoquery",
   "version": "1.0.0",
   "description": "node app ",
-  "main": "hello_app.js",
+  "main": "mongoquery.js",
   "scripts": {
-  "start": "node hello_app.js"
+  "start": "node mongoquery.js"
 },
   "repository": {
   "type": "git",
