@@ -27,12 +27,12 @@ http.createServer(function(req,res){
 
  	res.writeHead(200,{'Content-Type':'text/html'});
 	res.write("hello world");
-	res.end();
 
 //   /*  Take in the query object and the qury itself */
 	var qobj = url.parse(req.url,true);
 	var txt = qobj.query.name; 
 	res.write("<br>" + txt);
+	res.end();
 
 //   /* Connect to Mongodb and go into correct database/collection */
 // 	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true},function(err, db) {
