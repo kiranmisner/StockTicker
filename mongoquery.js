@@ -20,7 +20,7 @@ http.createServer(function(req,res){
 	     console.log("MAKES IT HERE");
     	     res.writeHead(200, {'Content-Type': 'image/x-icon'} );
 	     res.write("favicon");
-    	     res.end();
+//     	     res.end();
     	     console.log('favicon requested');
     	     return;
         }
