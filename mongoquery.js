@@ -16,44 +16,46 @@ http.createServer(function(req,res){
    * gets a request. This if statement will not take the favicon
    * request as a query. 
    */
-	if (req.url === '/favicon.ico') {
-	console.log("MAKES IT HERE");
-    	res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-    	res.end();
-    	console.log('favicon requested');
-    	return;
-  }
+// 	if (req.url === '/favicon.ico') {
+// 	console.log("MAKES IT HERE");
+//     	res.writeHead(200, {'Content-Type': 'image/x-icon'} );
+//     	res.end();
+//     	console.log('favicon requested');
+//     	return;
+//   }
 
-	res.writeHead(200,{'Content-Type':'text/html'});
+ 	res.writeHead(200,{'Content-Type':'text/html'});
+	res.write("hello world");
+	res.end();
 
-  /*  Take in the query object and the qury itself */
-	var qobj = url.parse(req.url,true);
-	var txt = qobj.query.name; 
+//   /*  Take in the query object and the qury itself */
+// 	var qobj = url.parse(req.url,true);
+// 	var txt = qobj.query.name; 
 
-  /* Connect to Mongodb and go into correct database/collection */
-	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true},function(err, db) {
- 		 if (err) {
-        console.log(err);
-      } 
-  	 var dbo = db.db("Stocks");
-     /* Use find one to either find a Company name or a Ticker because the query could 
-      * potentially be either!
-      */
-     console.log(txt);
-  	 dbo.collection("StockTickers").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
-     /* If result is null (not in database) tell the user that and return */
-  	 if (result == null) {
-  		  console.log("null");
-  		  res.write("Company Name or Stock Ticker was not found.");
-  		  return;
-  	 }
-     /* Otherwise, set the company name to the result and display it to the user */
-      companyname = result.Company;
-      ticker = result.Ticker;
-      res.write("Company Name: " + companyname + "\n" + "Company Ticker: " + ticker);
-      /* Close the database */
-      db.close();
-    })
+//   /* Connect to Mongodb and go into correct database/collection */
+// 	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true},function(err, db) {
+//  		 if (err) {
+//         console.log(err);
+//       } 
+//   	 var dbo = db.db("Stocks");
+//      /* Use find one to either find a Company name or a Ticker because the query could 
+//       * potentially be either!
+//       */
+//      console.log(txt);
+//   	 dbo.collection("StockTickers").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
+//      /* If result is null (not in database) tell the user that and return */
+//   	 if (result == null) {
+//   		  console.log("null");
+//   		  res.write("Company Name or Stock Ticker was not found.");
+//   		  return;
+//   	 }
+//      /* Otherwise, set the company name to the result and display it to the user */
+//       companyname = result.Company;
+//       ticker = result.Ticker;
+//       res.write("Company Name: " + companyname + "\n" + "Company Ticker: " + ticker);
+//       /* Close the database */
+//       db.close();
+//     })
 
-	 });
+// 	 });
   }).listen(port);
