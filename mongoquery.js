@@ -38,24 +38,24 @@ http.createServer(function(req,res){
        			console.log(err);
       		 } 
   	 	var dbo = db.db("Stocks");
-//      /* Use find one to either find a Company name or a Ticker because the query could 
-//       * potentially be either!
-//       */
-//      console.log(txt);
-//   	 dbo.collection("StockTickers").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
-//      /* If result is null (not in database) tell the user that and return */
-//   	 if (result == null) {
-//   		  console.log("null");
-//   		  res.write("Company Name or Stock Ticker was not found.");
-//   		  return;
-//   	 }
-//      /* Otherwise, set the company name to the result and display it to the user */
-//       companyname = result.Company;
-//       ticker = result.Ticker;
-//       res.write("Company Name: " + companyname + "\n" + "Company Ticker: " + ticker);
-//       /* Close the database */
-//       db.close();
-//     })
+     /* Use find one to either find a Company name or a Ticker because the query could 
+      * potentially be either!
+      */
+     console.log(txt);
+  	 dbo.collection("StockTickers").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
+     /* If result is null (not in database) tell the user that and return */
+  	 if (result == null) {
+  		  console.log("null");
+  		  res.write("Company Name or Stock Ticker was not found.");
+  		  return;
+  	 }
+     /* Otherwise, set the company name to the result and display it to the user */
+      companyname = result.Company;
+      ticker = result.Ticker;
+      res.write("Company Name: " + companyname + "\n" + "Company Ticker: " + ticker);
+      /* Close the database */
+      db.close();
+    })
 
  	 });
 	res.end();
