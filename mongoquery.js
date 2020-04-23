@@ -39,6 +39,7 @@ http.createServer(function(req,res){
       		 } 
 		console.log("before stocks");
   	 	var dbo = db.db("Stocks");
+		console.log("after stocks");
      /* Use find one to either find a Company name or a Ticker because the query could 
       * potentially be either!
       */
