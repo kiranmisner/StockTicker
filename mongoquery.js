@@ -16,13 +16,14 @@ http.createServer(function(req,res){
    * gets a request. This if statement will not take the favicon
    * request as a query. 
    */
-// 	if (req.url === '/favicon.ico') {
-// 	console.log("MAKES IT HERE");
-//     	res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-//     	res.end();
-//     	console.log('favicon requested');
-//     	return;
-//   }
+	if (req.url === '/favicon.ico') {
+	     console.log("MAKES IT HERE");
+    	     res.writeHead(200, {'Content-Type': 'image/x-icon'} );
+	     res.write("favicon");
+    	     res.end();
+    	     console.log('favicon requested');
+    	     return;
+        }
 
  	res.writeHead(200,{'Content-Type':'text/html'});
 	res.write("hello world");
