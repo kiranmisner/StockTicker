@@ -49,6 +49,7 @@ http.createServer(function(req,res){
   		  res.write("Company Name or Stock Ticker was not found.");
   		  return;
   	 }
+	console.log("after finding it");
      /* Otherwise, set the company name to the result and display it to the user */
       companyname = result.Company;
       ticker = result.Ticker;
