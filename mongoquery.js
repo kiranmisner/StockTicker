@@ -36,6 +36,7 @@ http.createServer(function(req,res){
 	MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true},function(err, db) {
  		 if (err) {
        			console.log(err);
+			return;
       		 } 
 		console.log("before stocks");
   	 	var dbo = db.db("Stocks");
