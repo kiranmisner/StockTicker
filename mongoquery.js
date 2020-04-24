@@ -37,7 +37,7 @@ http.createServer(function(req,res){
      /* Use find one to either find a Company name or a Ticker because the query could 
       * potentially be either!
       */
-     dbo.collection("StockTickers").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
+     dbo.collection("companies").findOne({ $or: [{Company: txt}, {Ticker: txt}]} , (err, result) => {
      /* If result is null (not in database) tell the user that and return */
   	 if (result == null) {
   		  res.write("Company Name or Stock Ticker was not found.");
